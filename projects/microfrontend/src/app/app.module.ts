@@ -5,21 +5,16 @@ import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  entryComponents: [
-    AppComponent
-  ]
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  entryComponents: [AppComponent]
 })
 export class AppModule {
   constructor(injector: Injector) {
     customElements.define(
-      'microfrontend',
-      createCustomElement(AppComponent, {injector}));
+      'micro-frontend',
+      createCustomElement(AppComponent, { injector })
+    );
   }
 
   ngDoBootstrap() {}

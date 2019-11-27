@@ -9,11 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:prod": "run-p build:microfrontend:prod build:shell:prod",
-    "build:microfrontend:prod": "ng build --prod --project microfrontend",
-    "postbuild:microfrontend:prod": "node concat.js",
+    "build:microfrontend:prod": "ng build --prod --project microfrontend --single-bundle",
     "build:shell:prod": "ng build --prod --project shell",
     "host": "run-p host:microservice host:shell",
-    "host:microservice": "serve -n -u -l 4201 elements",
+    "host:microservice": "serve -n -u -l 4201 dist/microfrontend",
     "host:shell": "serve -n -u -l 4202 dist/shell",
     "show-problem": "run-s build:prod host"
   },
@@ -28,10 +27,11 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "document-register-element": "^1.7.2",
+    "ngx-build-plus": "^9.0.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1",
-    "document-register-element": "^1.7.2"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.19",
