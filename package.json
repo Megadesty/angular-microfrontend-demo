@@ -9,11 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:prod": "run-p build:microfrontend:prod build:shell:prod",
-    "build:microfrontend:prod": "ng build --prod --project microfrontend",
-    "postbuild:microfrontend:prod": "node concat.js",
+    "build:microfrontend:prod": "ng build --prod --project microfrontend --single-bundle",
     "build:shell:prod": "ng build --prod --project shell",
     "host": "run-p host:microservice host:shell",
-    "host:microservice": "serve -n -u -l 4201 elements",
+    "host:microservice": "serve -n -u -l 4201 dist/microfrontend",
     "host:shell": "serve -n -u -l 4202 dist/shell",
     "show-problem": "run-s build:prod host"
   },
